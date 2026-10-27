@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f2" />
+    <title>Autora — Curated Automotive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#"
+        ><b class="mark">A<span>.</span></b
+        ><span>AUTORA<small>CURATED AUTOMOTIVE</small></span></a
+      >
+      <nav>
+        <a class="active" href="#inventory">Inventory</a
+        ><a href="#about">Our approach</a>
+      </nav>
+      <div class="actions">
+        <button id="themeToggle" class="theme" aria-label="Ganti tema">☼</button
+        ><a class="contact" href="#inventory">Explore cars ↗</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i> A MORE CONSIDERED DRIVE</div>
+          <h1>Find the car<br />that <em>moves you.</em></h1>
+          <p>
+            Exceptional vehicles, thoughtfully selected. Find your next drive
+            with confidence and a little more excitement.
+          </p>
+          <a class="primary" href="#inventory"
+            >Explore inventory <span>↘</span></a
+          >
+          <div class="metrics">
+            <div>
+              <strong id="heroTotal">—</strong><small>VEHICLES LISTED</small>
+            </div>
+            <i></i>
+            <div>
+              <strong>01<span>/</span>01</strong
+              ><small>YOUR NEXT CHAPTER</small>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&q=90"
+            alt="Mobil premium di jalan"
+          />
+          <div class="image-label">
+            <span>THE ART OF DRIVING</span><span>01 — SELECTED COLLECTION</span>
+          </div>
+          <div class="stamp">
+            <small>DRIVE</small><b>YOUR<br />OWN WAY</b><span>↗</span>
+          </div>
+          <div class="vertical">AUTOMOTIVE, REIMAGINED — EST. 2026</div>
+        </div>
+        <div class="hero-bottom">
+          <span>DESIGNED AROUND YOUR DRIVE</span
+          ><span>SCROLL TO DISCOVER ↓</span>
+        </div>
+      </section>
+      <section id="inventory" class="inventory">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow muted">THE AUTORA COLLECTION</div>
+            <h2>Meet your <em>next drive.</em></h2>
+          </div>
+          <p>
+            Browse a considered collection of vehicles<br />made for every kind
+            of journey.
+          </p>
+        </div>
+        <div class="toolbar">
+          <label class="search"
+            ><span>⌕</span
+            ><input
+              id="searchInput"
+              type="search"
+              placeholder="Search make, model, or keyword..."
+            /><kbd>⌘ K</kbd></label
+          >
+          <label
+            ><span class="sr-only">Merek</span
+            ><select id="brandFilter">
+              <option value="all">All makes</option>
+            </select></label
+          >
+          <label
+            ><span class="sr-only">Bahan bakar</span
+            ><select id="fuelFilter">
+              <option value="all">All fuel types</option>
+            </select></label
+          >
+          <label
+            ><span class="sr-only">Status</span
+            ><select id="statusFilter">
+              <option value="all">All availability</option>
+              <option value="tersedia">Available</option>
+              <option value="sold">Sold</option>
+            </select></label
+          >
+          <label
+            ><span class="sr-only">Urutan</span
+            ><select id="sortFilter">
+              <option value="newest">Year: newest</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+              <option value="name">Name: A–Z</option>
+            </select></label
+          >
+        </div>
+        <div class="filter-row">
+          <div id="quickFilters" class="quick">
+            <button class="selected" data-fuel="all">All vehicles</button
+            ><button data-fuel="Bensin">Petrol</button
+            ><button data-fuel="Diesel">Diesel</button
+            ><button data-fuel="Hybrid">Hybrid</button
+            ><button data-fuel="Listrik">Electric</button>
+          </div>
+          <div class="result">
+            <span id="resultsLabel">Loading inventory...</span
+            ><button id="resetFilters" hidden>Reset ↺</button>
+          </div>
+        </div>
+        <div id="carGrid" class="car-grid" aria-live="polite"></div>
+        <div id="emptyState" class="state" hidden>
+          <h3>No cars found</h3>
+          <p>Try another search or adjust your filters.</p>
+          <button id="clearFilters">Clear all filters</button>
+        </div>
+        <div id="errorState" class="state" hidden>
+          <h3>We hit a small roadblock.</h3>
+          <p>
+            Inventory data could not be loaded. Check your connection and try
+            again.
+          </p>
+          <button id="retryButton">Try again ↻</button>
+        </div>
+        <div class="more-wrap">
+          <button id="loadMore" class="more" hidden>
+            Show more vehicles ↓
+          </button>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <b class="about-mark">A<span>.</span></b>
+        <div>
+          <div class="eyebrow muted">NOT JUST A CAR. YOUR NEXT CHAPTER.</div>
+          <h2>Good cars make<br /><em>great stories.</em></h2>
+        </div>
+        <p>
+          We believe finding a car should feel as good as driving one. Explore
+          the collection, compare what matters, and discover a vehicle that fits
+          your life.
+        </p>
+        <a href="#inventory">Find your match ↗</a>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="#"
+        ><b class="mark">A<span>.</span></b
+        ><span>AUTORA<small>CURATED AUTOMOTIVE</small></span></a
+      ><span>Find your next drive, your way.</span
+      ><span>INVENTORY POWERED BY API</span>
+    </footer>
+    <dialog id="carDialog">
+      <button id="dialogClose" class="close" aria-label="Tutup">×</button>
+      <div id="dialogContent"></div>
+    </dialog>
+  </body>
+</html>
